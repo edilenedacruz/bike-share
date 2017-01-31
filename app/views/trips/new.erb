@@ -1,0 +1,13 @@
+<h1>Add your trip information</h1>
+
+<form action="/trips" method="POST">
+  <label>Duration: </label> <input type="number" name="trip[duration]"/></br>
+  <label>Start Date: </label> <input type="text" name="trip[start_date]" /></br>
+  <label>End Date: </label> <input type="text" name="trip[end_date]"/></br>
+  <label>Starting Station: </label> <input type ="text" name="trip[start_station]" /></br>
+  <label>Ending Station: </label> <input type="text" name="trip[end_station]" /></br>
+  <label>Bike id: </label> <input type="text" name="trip[bike_id]" /></br>
+  <label>Subscriber or Customer: </label> <input type="text" name="trip[subscription]" /></br>
+  <label>Zipcode: </label> <input type="text" name="trip[zipcode]" /></br>
+  <input type="submit" name="Submit trip" />
+</form>
