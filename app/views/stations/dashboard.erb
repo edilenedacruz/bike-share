@@ -7,10 +7,8 @@
 <h4>Most bikes available at a station (based on docks): <%= Station.most_bikes_available_at_a_station %></h4>
 <h4>Fewest bikes available at a station (based on docks): <%= Station.fewest_bikes_available_at_a_station %></h4>
 
-
-
-<h4>Station(s) where the most bikes are available (based on docks): </h4>
-<h4>Station(s) where the fewest bikes are available (based on docks): </h4>
+<h4>Station(s) where the most bikes are available (based on docks): <%=Station.maximum_dock_count %></h4>
+<h4>Station(s) where the fewest bikes are available (based on docks): <%= Station.minimum_dock_count%></h4>
 
 <h4>Most recently installed station: <%= Station.most_recently_installed_station %></h4>
 <h4>Oldest station: <%= Station.oldest_station %></h4>

@@ -1,0 +1,17 @@
+<h1>Trip details</h1>
+
+<!-- <p>Trid id<%= @trip.id %></p> -->
+  <p>Duration: <%= @trip.duration %></p>
+  <p>Start Date: <%= @trip.start_date %></p>
+  <p>End Date: <%= @trip.end_date %></p>
+  <p>Starting Station: <%= @trip.start_station %></p>
+  <p>Ending Station: <%= @trip.end_station %></p>
+  <p>Bike id: <%= @trip.bike_id %></p>
+  <p>Subscriber or Customer: <%= @trip.subscription %></p>
+  <p>Zipcode: <%= @trip.zipcode %></p>
+
+  <a href="/trips/<%= @trip.id %>/edit">Edit trip</a>
+  <form action="/trips/<%= @trip.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete" />
+  </form>

@@ -1,0 +1,14 @@
+<h1>Edit your trip</h1>
+
+<form action="/trips/<%= @trip.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT" />
+  <label>Duration: </label><input type="text" name="trip[duration]" value="<%= @trip.duration %>" /><br/>
+  <label>Start Date: </label><input type="text" name="trip[start_date]" value="<%= @trip.start_date %>" /><br/>
+  <label>End Date: </label><input type="text" name="trip[end_date]" value="<%= @trip.end_date %>" /><br/>
+  <label>Starting Station: </label><input type="text" name="trip[start_station]" value="<%= @trip.start_station %>" /><br/>
+  <label>Ending Station: </label><input type="text" name="trip[end_station]" value="<%= @trip.end_station %>" /><br/>
+  <label>Bike id: </label><input type="text" name="trip[bike_id]" value="<%= @trip.bike_id %>" /><br/>
+  <label>Subscriber or Customer: </label><input type="text" name="trip[subscription]" value="<%= @trip.subscription %>" /><br/>
+  <label>Zipcode: </label><input type="text" name="trip[zipcode]" value="<%= @trip.zipcode %>" /><br/>
+  <input type='submit' value="Submit"/>
+</form>

@@ -1,0 +1,13 @@
+<h1>First 30 Trips</h1>
+
+<div id="trips">
+  <% @trips.each do |trip| %>
+    <h5><a href="/trips/<%= trip.id %>"><%= trip.id %></h5>
+    <a href="/trips/<%= trip.id %>/edit">Edit trip</a>
+    <form action="/trips/<%= trip.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete" />
+    </form>
+  <% end %>
+</div>
+<button type="button">Next 30 trips</button>
