@@ -8,7 +8,7 @@ class Station < ActiveRecord::Base
   validates :installation_date, presence: true
 
   def self.total_count_of_stations
-    all.count
+    count
   end
 
   def self.average_bikes_available_per_station
@@ -24,11 +24,11 @@ class Station < ActiveRecord::Base
   end
 
   def self.minimum_dock_count_name
-    where(dock_count: Station.fewest_bikes_available_at_a_station)
+    where(dock_count: fewest_bikes_available_at_a_station)
   end
 
   def self.maximum_dock_count_name
-    where(dock_count: Station.most_bikes_available_at_a_station)
+    where(dock_count: most_bikes_available_at_a_station)
   end
 
   def self.most_recently_installed_station

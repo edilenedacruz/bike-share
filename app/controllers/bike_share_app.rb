@@ -45,7 +45,6 @@ class BikeShareApp < Sinatra::Base
     erb :"conditions/dashboard"
   end
 
-# trip
   get '/trips' do
     @trips = Trip.paginate(:page => params[:page], :per_page => 30)
     erb :"trips/index"
@@ -86,7 +85,6 @@ class BikeShareApp < Sinatra::Base
     erb:"/trips/dashboard"
   end
 
-  #read - all
   get '/stations' do
     @stations = Station.all
     erb:"stations/index"
