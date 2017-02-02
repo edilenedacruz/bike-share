@@ -12,7 +12,7 @@ At a high level, this project will develop along the following path:
 * Iteration 2: Create a seed file to consume information on the seventy existing bike share stations in San Francisco.
 * Iteration 3: Create a station dashboard with analysis of station information (split by city, date installed, number of of bicycle docks)
 * Iteration 4: Allow users to save and view information related to trips taken.
-* Iteration 5: Update the seed file to consume information on the nearly 670,000 trips taken between August 29, 2013, and August 81, 2015.
+* Iteration 5: Update the seed file to consume information on the nearly 670,000 trips taken between August 29, 2013, and August 31, 2015.
 * Iteration 6: Add information to the station dashboard using trip information, and create a trip dashboard with an analysis of trips taken.
 * Iteration 7: Allow users to enter weather information.
 * Iteration 8: Update the seed file to consume weather information.
@@ -49,7 +49,7 @@ At a high level, this project will develop along the following path:
 
 ### Define the Relationship with Your Group
 
-DTR with youg group [here](https://gist.github.com/case-eee/38e212c799c563f58766128b5057858a). One group member should send a link of the forked gist to your anchor as soon as it's complete.
+DTR with your group [here](https://gist.github.com/case-eee/38e212c799c563f58766128b5057858a). One group member should send a link of the forked gist to your anchor as soon as it's complete.
 
 ### Clone the Project
 
@@ -112,7 +112,7 @@ At the end of this iteration, you should be able to view an index of all station
 
 ### Iteration 2
 
-Download the dataset available [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). This will include all of the CSV files that you will be using in this project. Since these files are large, we have set up your project directory structure and `.gitignore` so that when you add these files to the `/db/csv/` directory they will not be pushed up to GitHub. However, this also means that each of the members of your team will need to download these files independently.
+Download the dataset available [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). This will include all of the CSV files that you will be using in this project. Since these files are large, we have set up your project directory structure and `.gitignore` so that when you add these files to the `/db/csv/` directory they will not be pushed up to GitHub. However, this also means that each of the members of your team will need to download these files independently. Please note that there are idiosyncracies in the data that are outlined in some detail [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share/discussion/23165). These may not be important to you at this moment, but this will be an important reference as you move through future iterations.
 
 Update the seed file in your `/db` directory and add the `station.csv` file to your `/db/csv/` directory. When you run `ruby db/seed.rb` your development database should be populated with the information from the `station.csv` file. Your index should include a total of seventy stations.
 
@@ -142,7 +142,7 @@ Create full CRUD functionality for a trip with the following characteristics:
 * Subscription Type
 * Zip Code
 
-As with `Station`'s, all attributes of a `Trip` need to be present to ensure data integrity. Don't forget your validations and tests for each validation.
+Note: Zip Code is a user-provided field, and may not be present on all records. Otherwise, as with `Station`'s, all attributes of a `Trip` need to be present to ensure data integrity. Don't forget your validations and tests for each validation.
 
 As with Iteration 1, be sure that you are working to normalize your database. This may mean using references to existing tables. At the end of this iteration users should be able to visit the following routes:
 
@@ -181,7 +181,7 @@ Add the `trip.csv` file to your `db/csv` directory, and update your `seed.rb` fi
 * Single date with the highest number of trips with a count of those trips.
 * Single date with the lowest number of trips with a count of those trips.
 
-On the station dashboard add the following information:
+On an individual station show page add the following information:
 
 * Number of rides started at this station.
 * Number of rides ended at this station.
