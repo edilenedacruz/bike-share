@@ -8,24 +8,29 @@
     <h1>All Stations<h1>
     <hr>
     <button type="button"><a href="/stations/new">Add New Station</a></button>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Additional Info</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+        <% @stations.each do |station| %>
+          <tr>
+            <td><%= station.name %></td>
+            <td><button type='button'><a href="/stations/<%=station.id %>">Additional Info</a></button></td>
+            <td><button><a href="/stations/<%=station.id %>/edit">Edit</a></button></td>
+            <td>
+              <form action="/stations/<%= station.id %>" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                <input type="submit" value="Delete" />
+              </form>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <hr>
+      <%= will_paginate @stations %>
 
-    <%@stations.each do |station| %>
-        <h3>Name:</h3>
-        <p><%= station.name %></p>
-        <h3>Dock Count:</h3>
-        <p><%= station.dock_count %></p>
-        <h3>City:</h3>
-        <p><%= station.city %></p>
-        <h3>Installation Date:</h3>
-        <p><%= station.installation_date %></p>
-
-        <button type="button"><a href="/stations/<%=station.id%>">View</a></button>
-        <button type="button"><a href="/stations/<%= station.id %>/edit">Edit</a></button>
-        <form action='/stations/<%=station.id%>' method='POST'>
-          <input type='hidden' name='_method' value='DELETE'>
-          <input type='submit' value='Remove Station'/>
-        </form>
-        <hr>
-    <%end %>
   </body>
  </html>
