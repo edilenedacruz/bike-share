@@ -39,9 +39,11 @@ class Station < ActiveRecord::Base
     maximum("installation_date")
   end
 
-  # def self.rides_started_at_this_station
-  #   Trip.all.where(start_station_id: @station.id or name).count
-  # end
+  def self.rides_started_at_this_station
+    require 'pry'; binding.pry
+    a = Station
+    Trip.where(start_station_name: @station.name).count
+  end
 
   # def self.rides_ended_at_this_station
     # Trip.all.where(end_station_id: @station.id or name).count

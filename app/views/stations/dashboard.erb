@@ -58,7 +58,7 @@
     <p><%=@oldest%></p>
 
     <h3>Number of rides started at this station: </h3>
-    <p>(replace me with the method)</p>
+    <p><%= @station.rides_started_at_this_station(@station.name)%></p>
 
     <h3>Number of rides ended at this station: </h3>
     <p>(replace me with the method)</p>

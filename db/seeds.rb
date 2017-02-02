@@ -7,7 +7,8 @@ require './app/models/bike.rb'
 CSV.foreach('db/csv/trip.csv', :headers=> true) do |row|
 
   bike = Bike.find_or_create_by(id: row["bike_id"])
-  Station.find_or_create_by(name: row["name"]).update
+  Station.find_or_create_by(name: row["name"])
+
   Trip.create!({
   duration: row["duration"],
   start_date: row["start_date"],

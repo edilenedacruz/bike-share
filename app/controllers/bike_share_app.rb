@@ -126,7 +126,9 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/stations/:id' do
+    require 'pry'; binding.pry
     @station = Station.find(params[:id])
+    @station_name = Station.find(params[:name])
     erb:"/stations/show"
   end
 
@@ -150,6 +152,7 @@ class BikeShareApp < Sinatra::Base
     @max_dock_name = Station.maximum_dock_count_name
     @recent = Station.most_recently_installed_station
     @oldest = Station.oldest_station
+
     erb:"/stations/dashboard"
   end
 
