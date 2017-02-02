@@ -1,3 +1,5 @@
+require_relative 'station'
+
 class Trip < ActiveRecord::Base
 
   belongs_to :bike
@@ -11,12 +13,12 @@ class Trip < ActiveRecord::Base
   validates :subscription, presence: true
 
   def self.find_all_start(id)
-    Trip.where(start_station_id: id)
+    where(start_station_id: id)
   end
 
   def self.find_all_end(id)
-    Trip.where(start_station_id: id)
-  end  
+    where(start_station_id: id)
+  end
 
   def self.average_duration_of_a_ride
     t = (average("duration").round).to_i
@@ -35,15 +37,6 @@ class Trip < ActiveRecord::Base
     time = Time.at(t).utc.strftime("%H:%M:%S")
     format_time(time)
   end
-
-  # def self.month_by_month_breakdown
-  #   #Month by Month breakdown of number of rides with subtotals for each year:
-  #
-  # end
-  #
-  # def self
-  #
-  # end
 
   def self.format_time(time)
     a = time.split(":")
@@ -57,11 +50,9 @@ class Trip < ActiveRecord::Base
     group("subscription").count
   end
 
-
   def self.total_subscribers
     pluck("subscription").count
   end
-
 
   def self.average_duration_of_a_ride
     t = (average("duration").round).to_i
@@ -81,23 +72,6 @@ class Trip < ActiveRecord::Base
     format_time(time)
   end
 
-  # def self.month_by_month_breakdown
-  #   #Month by Month breakdown of number of rides with subtotals for each year:
-  #
-  # end
-  #
-  # def self
-  #
-  # end
-
-  def self.format_time(time)
-    a = time.split(":")
-    hours = a[0]
-    minutes = a[1]
-    seconds = a[2]
-    "#{hours} hours, #{minutes} minutes and #{seconds} seconds"
-  end
-
   def self.subscriber_count
     where(subscription: "Subscriber").count
   end
@@ -107,6 +81,15 @@ class Trip < ActiveRecord::Base
     customer = where(subscription: "Customer").count
 
     total = subscriber/customer
-    #total  = Trip.all.count/subscriber
+  end
+
+  def self.station_with_most_trips_as_a_starting_place
+    id = maximum("start_station_id")
+    trip = where(id: id).start_station_id
+    #Station.where(id: trip).name
+  end
+
+  def self.station_with_most_trips_as_a_ending_place
+    maximum("end_station_id")
   end
 end

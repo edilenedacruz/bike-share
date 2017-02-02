@@ -1,7 +1,5 @@
 class Station < ActiveRecord::Base
   has_many :trips
-
-
   validates :name, presence: true
   validates :dock_count, presence: true
   validates :city, presence: true
@@ -38,34 +36,4 @@ class Station < ActiveRecord::Base
   def self.oldest_station
     maximum("installation_date")
   end
-
-  # def self.rides_started_at_this_station
-  #   Trip.all.where(start_station_id: @station.id or name).count
-  # end
-
-  # def self.rides_ended_at_this_station
-    # Trip.all.where(end_station_id: @station.id or name).count
-  # end
-
-  # def self.most_frequent_destination_station_for_rides_that_began_at_given_station
-  #   Trip.all.
-  # end
-  #
-  # def self.most_frequent_origination_station_for_rides_that_ended_at_given_station
-  #
-  # end
-
-  # def self.date_with_highest_numbers_of_trips_started_at_given_station
-  #
-  # end
-  #
-  # def self.frequent_zip_code_for_starting_trips_at_given_station
-  #
-  # end
-
-  # def self.bike_id_most_frequently_starting_a_trip_at_given_station
-  #
-  # end
-
-
 end
